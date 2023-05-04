@@ -1,7 +1,8 @@
 #include "Player.h"
-#include "Vector2.h"
 #include "surface.h"
 #include <stdio.h>
+#include "template.h"
+
 
 namespace Tmpl8 {
 
@@ -9,7 +10,7 @@ namespace Tmpl8 {
 	{
 		speed = 1;
 		moving = false;
-		position = new Vector2(50, 50);
+		position = new vec2(50, 50);
 		picture = new Sprite(new Surface("assets/aagun.tga"), 36);
 	}
 
@@ -22,13 +23,13 @@ namespace Tmpl8 {
 	{
 		moving = false;
 	}
-	void Player::Move(Vector2* CursorPos)
+	void Player::Move(vec2* CursorPos)
 	{
 		if (!moving)
 		{
 			return;
 		}
-		Vector2 direction = *CursorPos - *position;
+		vec2 direction = *CursorPos - *position;
 		direction.normalize();
 		position->x += direction.x;
 		position->y += direction.y;

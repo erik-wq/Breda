@@ -11,9 +11,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Vector2.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="ColliderBase.cpp">
       <Filter>Game\Colliders</Filter>
     </ClCompile>
@@ -30,9 +27,6 @@
       <Filter>template code</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="ColliderBase.h">

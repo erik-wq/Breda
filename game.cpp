@@ -1,7 +1,7 @@
 #include "game.h"
 #include "surface.h"
 #include "Player.h"
-#include "Vector2.h"
+#include "template.h"
 #include <iostream>
 
 namespace Tmpl8
@@ -31,7 +31,7 @@ namespace Tmpl8
 	{
 		// clear the graphics window
 		screen->Clear(0);
-		player->Move(new Vector2(CursorX, CursorY));
+		player->Move(new vec2(CursorX, CursorY));
 		player->Update(screen);
 	}
 
