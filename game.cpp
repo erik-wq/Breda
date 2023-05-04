@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "template.h"
 #include <iostream>
+#include <iostream>
 
 namespace Tmpl8
 {
@@ -31,7 +32,7 @@ namespace Tmpl8
 	{
 		// clear the graphics window
 		screen->Clear(0);
-		player->Move(new vec2(CursorX, CursorY));
+		player->Move();
 		player->Update(screen);
 	}
 
@@ -46,16 +47,16 @@ namespace Tmpl8
 	{
 		if (key == 44)
 		{
-			player->Stop();
+			player->UpdateDirection(new vec2((float)CursorX, (float)CursorY));
+			player->StartMove();
 		}
 	}
 
 	void Game::KeyDown(int key)
 	{
 		if (key == 44)
-		{
-			player->StartMove();
+		{  
+			player->Stop();
 		}
 	}
-
 };

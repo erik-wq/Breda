@@ -12,6 +12,7 @@ namespace Tmpl8 {
 		moving = false;
 		position = new vec2(50, 50);
 		picture = new Sprite(new Surface("assets/aagun.tga"), 36);
+		direction = new vec2(0, 0);
 	}
 
 	void Player::StartMove()
@@ -23,21 +24,29 @@ namespace Tmpl8 {
 	{
 		moving = false;
 	}
-	void Player::Move(vec2* CursorPos)
+	void Player::Move()
 	{
 		if (!moving)
 		{
 			return;
 		}
-		vec2 direction = *CursorPos - *position;
-		direction.normalize();
-		position->x += direction.x;
-		position->y += direction.y;
+		position->x += direction->x;
+		position->y += direction->y;
 	}
 
 	void Player::Update(Surface* screen)
 	{
-		picture->Draw(screen, position->x, position->y);
+		// position of object is in midle of object, simulationg pivot
+		picture->Draw(screen, 
+			position->x - picture->GetWidth() / 2, 
+			position->y - picture->GetHeight() / 2);
+	}
+
+	void Player::UpdateDirection(vec2* cursor)
+	{
+		direction->x = cursor->x - position->x;
+		direction->y = cursor->y - position->y;
+		direction->normalize();
 	}
 	
 	Player::~Player()

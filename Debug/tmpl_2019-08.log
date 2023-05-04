@@ -1,2 +1,4 @@
-﻿  template.cpp
+﻿  Player.cpp
+C:\Game development\Hollandsko\Breda\Player.cpp(39,76): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Game development\Hollandsko\Breda\Player.cpp(39,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   tmpl_2019-08.vcxproj -> C:\Game development\Hollandsko\Breda\tmpl_2019-08_x86_debug.exe

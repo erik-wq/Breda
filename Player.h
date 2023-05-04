@@ -11,13 +11,15 @@ namespace Tmpl8 {
 		Player();
 		void StartMove();
 		void Stop();
-		void Move(vec2* CursorPos);
+		void Move();
 		void Update(Surface* screen);
+		void Player::UpdateDirection(vec2* cursor);
 		~Player();
 	private:
 		int speed;
 		bool moving;
 		vec2 *position;
 		Sprite *picture;
+		vec2* direction;
 	};
 }
