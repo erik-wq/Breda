@@ -33,6 +33,7 @@ private:
 	Player* player;
 
 	SceneObject* level;
+	Sprite* sp;
 };
 
 }; // namespace Tmpl8

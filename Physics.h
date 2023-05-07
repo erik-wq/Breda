@@ -3,6 +3,7 @@
 namespace Tmpl8
 {
 	class SceneObject;
+	class vec2;
 
 	class Physics
 	{

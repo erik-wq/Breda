@@ -26,6 +26,14 @@ namespace Tmpl8
 		{
 			return BoxCollisionCheck(player, object);
 		}
+		else if (object->collider->type == 2)
+		{
+			if (PolygonCollisionCheck(player, object))
+			{
+				printf("collision\n");
+				return true;
+			}
+		}
 		return false;
 	}
 
@@ -84,6 +92,48 @@ namespace Tmpl8
 
 	bool Physics::PolygonCollisionCheck(SceneObject* player, SceneObject* object)
 	{
+		CircleCollider* pCol = dynamic_cast<CircleCollider*>(player->collider);
+		if (object->collider == nullptr || pCol == nullptr)
+		{
+			return false;
+		}
+		
+		std::vector<vec2*> points = object->collider->GetColliderPoints(object->GlobalPosition());
+		vec2* playerpos = player->GlobalPosition();
+
+		// Check for edge-circle intersection
+		for (int i = 0; i < points.size(); i++)
+		{
+			vec2 p1 = *points[i];
+			vec2 p2 = *points[(i + 1) % points.size()];
+			vec2* lineVec = new vec2(p2.x - p1.x, p2.y - p1.y);
+			double lineLength = lineVec->length();
+			vec2* lineDir = new vec2(lineVec->x / lineLength,
+				lineVec->y / lineLength);
+
+			vec2 circleVec = *player->GlobalPosition() - p1;
+			double dotProduct = circleVec.dot(*lineDir);
+
+			vec2 closestPoint;
+			if (dotProduct < 0) {
+				closestPoint = p1;
+			}
+			else if (dotProduct > lineLength) {
+				closestPoint = p2;
+			}
+			else {
+				closestPoint = p1 + *lineDir * dotProduct;
+			}
+
+			double distance = (closestPoint - *player->GlobalPosition()).length();
+			delete(lineVec);
+			delete(lineDir);
+			if (distance <= 20)
+			{
+				return true;
+			}
+		}
+
 		return false;
 	}
 }

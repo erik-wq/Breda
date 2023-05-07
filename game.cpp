@@ -7,6 +7,8 @@
 #include "CircleCollider.h"
 #include "Physics.h"
 #include "BoxCollider.h"
+#include "PolygonCollider.h"
+#include <vector>
 
 namespace Tmpl8
 {
@@ -17,9 +19,16 @@ namespace Tmpl8
 	void Game::Init()
 	{
 		player = new Player();
+		player->SetPosition(300,50);
 		level = new SceneObject();
-		level->SetPosition(250, 250);
-		level->collider = new BoxCollider(160, 40);
+		level->SetPosition(400, 400);
+		sp = new Sprite(new Surface("assets/barier.png"), 1);
+		std::vector<vec2*> points;
+		points.push_back(new vec2(-150, -120));
+		points.push_back(new vec2(50,-120));
+		points.push_back(new vec2(150, 120));
+		points.push_back(new vec2(-150,120));
+		level->collider = new PolygonCollider(points);
 	}
 	
 	// -----------------------------------------------------------
@@ -38,12 +47,13 @@ namespace Tmpl8
 	{
 		// clear the graphics window
 		screen->Clear(0);
-		Sprite sp = Sprite(new Surface("assets/Horizontal.png"), 1);
 
 		vec2* t = level->GlobalPosition();
-		sp.Draw(screen, t->x - sp.GetWidth() / 2, t->y - sp.GetHeight() / 2);
+		sp->Draw(screen, t->x - sp->GetWidth() / 2, t->y - sp->GetHeight() / 2);
 
 		player->Move();
+
+
 		if (Physics::CheckCollision(player, level))
 		{
 			printf("collision detected\n");
