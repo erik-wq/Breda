@@ -222,19 +222,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="ColliderBase.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PolygonCollider.cpp" />
     <ClCompile Include="SceneObject.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="ColliderBase.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PolygonCollider.h" />
     <ClInclude Include="SceneObject.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />

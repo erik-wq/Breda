@@ -13,10 +13,7 @@ namespace Tmpl8
 	// -----------------------------------------------------------
 	void Game::Init()
 	{
-		level = new SceneObject();
-		level->SetPosition(100, 100);
 		player = new Player();
-		player->SetParent(level);
 	}
 	
 	// -----------------------------------------------------------
@@ -25,7 +22,6 @@ namespace Tmpl8
 	void Game::Shutdown()
 	{
 		delete(player);
-		delete(level);
 	}
 
 	// -----------------------------------------------------------
@@ -35,7 +31,6 @@ namespace Tmpl8
 	void Game::Tick(float deltaTime)
 	{
 
-		level->UpdatePosition(0, 1);
 		// clear the graphics window
 		screen->Clear(0);
 		player->Move();

@@ -20,6 +20,12 @@
     <ClCompile Include="SceneObject.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="BoxCollider.cpp">
+      <Filter>Game\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonCollider.cpp">
+      <Filter>Game\Colliders</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -40,6 +46,12 @@
     </ClInclude>
     <ClInclude Include="SceneObject.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>Game\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonCollider.h">
+      <Filter>Game\Colliders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 namespace Tmpl8 {
 	class vec2;
@@ -6,11 +7,14 @@ namespace Tmpl8 {
 	class ColliderBase
 	{
 	public:
-		ColliderBase();
-		~ColliderBase();
-		// points of collider in local space
-		vec2** colliderPoints = nullptr;
-		// number of points
-		int count;
+		virtual std::vector<vec2*> GetColliderPoints(vec2* position) = 0;
+		ColliderType type;
+	};
+
+	enum ColliderType
+	{
+		circle,
+		box,
+		polygon
 	};
 }
