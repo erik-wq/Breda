@@ -17,6 +17,9 @@
     <ClCompile Include="CircleCollider.cpp">
       <Filter>Game\Colliders</Filter>
     </ClCompile>
+    <ClCompile Include="SceneObject.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -34,6 +37,9 @@
     </ClInclude>
     <ClInclude Include="CircleCollider.h">
       <Filter>Game\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneObject.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

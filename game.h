@@ -5,6 +5,7 @@ namespace Tmpl8 {
 class Surface;
 class Sprite;
 class Player;
+class SceneObject;
 
 class Game
 {
@@ -31,6 +32,7 @@ private:
 	// player refenrence
 	Player* player;
 
+	SceneObject* level;
 };
 
 }; // namespace Tmpl8
