@@ -2,9 +2,10 @@
 #include "template.h"
 
 namespace Tmpl8 {
-	PolygonCollider::PolygonCollider(std::vector<vec2*> ColliderPoints)
+	PolygonCollider::PolygonCollider(std::vector<vec2*> ColliderPoints) : ColliderBase()
 	{
 		points = ColliderPoints;
+		type = 2;
 	}
 
 	std::vector<vec2*> PolygonCollider::GetColliderPoints(vec2* position)

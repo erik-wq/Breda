@@ -12,19 +12,22 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="ColliderBase.cpp">
-      <Filter>Game\Colliders</Filter>
+      <Filter>Game\Physics\Colliders</Filter>
     </ClCompile>
     <ClCompile Include="CircleCollider.cpp">
-      <Filter>Game\Colliders</Filter>
+      <Filter>Game\Physics\Colliders</Filter>
     </ClCompile>
     <ClCompile Include="SceneObject.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="BoxCollider.cpp">
-      <Filter>Game\Colliders</Filter>
+      <Filter>Game\Physics\Colliders</Filter>
     </ClCompile>
     <ClCompile Include="PolygonCollider.cpp">
-      <Filter>Game\Colliders</Filter>
+      <Filter>Game\Physics\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Game\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -39,19 +42,22 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="ColliderBase.h">
-      <Filter>Game\Colliders</Filter>
+      <Filter>Game\Physics\Colliders</Filter>
     </ClInclude>
     <ClInclude Include="CircleCollider.h">
-      <Filter>Game\Colliders</Filter>
+      <Filter>Game\Physics\Colliders</Filter>
     </ClInclude>
     <ClInclude Include="SceneObject.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="BoxCollider.h">
-      <Filter>Game\Colliders</Filter>
+      <Filter>Game\Physics\Colliders</Filter>
     </ClInclude>
     <ClInclude Include="PolygonCollider.h">
-      <Filter>Game\Colliders</Filter>
+      <Filter>Game\Physics\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Game\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -61,7 +67,10 @@
     <Filter Include="Game">
       <UniqueIdentifier>{666e1c37-6880-4193-8da2-e5c6af43056e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Colliders">
+    <Filter Include="Game\Physics">
+      <UniqueIdentifier>{2efa10a4-a3c4-46bd-8809-9dab2b616259}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Physics\Colliders">
       <UniqueIdentifier>{1e55164d-e5e2-4954-a942-c6fead99c2d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

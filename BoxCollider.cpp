@@ -2,9 +2,10 @@
 #include "template.h"
 
 namespace Tmpl8 {
-	BoxCollider::BoxCollider(int widht, int height)
+	BoxCollider::BoxCollider(int widht, int height) : ColliderBase()
 	{
 		extends = new vec2(widht / 2, height / 2);
+		type = 1;
 	}
 	BoxCollider::~BoxCollider()
 	{

@@ -8,13 +8,6 @@ namespace Tmpl8 {
 	{
 	public:
 		virtual std::vector<vec2*> GetColliderPoints(vec2* position) = 0;
-		ColliderType type;
-	};
-
-	enum ColliderType
-	{
-		circle,
-		box,
-		polygon
+		int type; // 0 circle, 1 box , 2 polygon
 	};
 }

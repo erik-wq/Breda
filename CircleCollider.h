@@ -6,6 +6,8 @@ namespace Tmpl8 {
     {
     public:
         CircleCollider(int circleRadius);
+        int GetRadius() { return radius; }
+        std::vector<vec2*> GetColliderPoints(vec2* position) override;
     private:
         int radius;
     };

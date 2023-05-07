@@ -1,2 +1,9 @@
-﻿  game.cpp
+﻿  Physics.cpp
+  Player.cpp
+D:\erik\Development\Game Development\Holandsko\Breda\Player.cpp(46,11): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\erik\Development\Game Development\Holandsko\Breda\Player.cpp(45,11): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  game.cpp
+D:\erik\Development\Game Development\Holandsko\Breda\game.cpp(43,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\erik\Development\Game Development\Holandsko\Breda\game.cpp(43,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
   tmpl_2019-08.vcxproj -> D:\erik\Development\Game Development\Holandsko\Breda\tmpl_2019-08_x86_debug.exe
