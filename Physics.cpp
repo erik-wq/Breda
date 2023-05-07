@@ -14,9 +14,17 @@ namespace Tmpl8
 		{
 			return false;
 		}
+		if (player->collider == nullptr || object->collider == nullptr)
+		{
+			return false;
+		}
 		if (object->collider->type == 0)
 		{
 			return CircleCollisionCheck(player, object);
+		}
+		else if (object->collider->type == 1)
+		{
+			return BoxCollisionCheck(player, object);
 		}
 		return false;
 	}
@@ -45,6 +53,32 @@ namespace Tmpl8
 
 	bool Physics::BoxCollisionCheck(SceneObject* player, SceneObject* object)
 	{
+		BoxCollider* box = dynamic_cast<BoxCollider*>(object->collider);
+		CircleCollider* circle = dynamic_cast<CircleCollider*>(player->collider);
+		if (box == nullptr || circle == nullptr)
+		{
+			return false;
+		}
+		vec2* position = object->GlobalPosition();
+		vec2* extends = box->GetBounds();
+		vec2* playerPos = player->GlobalPosition();
+		float closestX = std::max(position->x - extends->x, std::min(playerPos->x, position->x + extends->x));
+		float closestY = std::max(position->y - extends->y, std::min(playerPos->y, position->y + extends->y));
+
+		// Calculate the distance between the closest point and the circle center
+		float distanceX = closestX - playerPos->x;
+		float distanceY = closestY - playerPos->y;
+		float distance = std::sqrt(distanceX * distanceX + distanceY * distanceY);
+
+		// Check if the distance is less than the circle radius (collision occurred)
+		if (distance < circle->GetRadius())
+		{
+			// Set the collision point coordinates
+			// collisionX = closestX;
+			// collisionY = closestY;
+			return true;
+		}
+
 		return false;
 	}
 

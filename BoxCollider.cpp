@@ -20,4 +20,8 @@ namespace Tmpl8 {
 		points.push_back(new vec2(position->x - extends->x, position->y - extends->y));
 		return points;
 	}
+	vec2* BoxCollider::GetBounds()
+	{
+		return extends;
+	}
 }

@@ -9,6 +9,7 @@ namespace Tmpl8 {
 		BoxCollider(int widht, int height);
 		~BoxCollider();
 		std::vector<vec2*> GetColliderPoints(vec2* position) override;
+		vec2* GetBounds();
 	private:
 		vec2* extends;
 	};

@@ -6,6 +6,7 @@
 #include <iostream>
 #include "CircleCollider.h"
 #include "Physics.h"
+#include "BoxCollider.h"
 
 namespace Tmpl8
 {
@@ -18,7 +19,7 @@ namespace Tmpl8
 		player = new Player();
 		level = new SceneObject();
 		level->SetPosition(250, 250);
-		level->collider = new CircleCollider(20);
+		level->collider = new BoxCollider(160, 40);
 	}
 	
 	// -----------------------------------------------------------
@@ -37,7 +38,7 @@ namespace Tmpl8
 	{
 		// clear the graphics window
 		screen->Clear(0);
-		Sprite sp = Sprite(new Surface("assets/Player.png"), 4);
+		Sprite sp = Sprite(new Surface("assets/Horizontal.png"), 1);
 
 		vec2* t = level->GlobalPosition();
 		sp.Draw(screen, t->x - sp.GetWidth() / 2, t->y - sp.GetHeight() / 2);
