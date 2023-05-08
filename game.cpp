@@ -27,6 +27,7 @@ namespace Tmpl8
 	// -----------------------------------------------------------
 	void Game::Shutdown()
 	{
+		delete(level);
 	}
 
 	// -----------------------------------------------------------
@@ -41,19 +42,20 @@ namespace Tmpl8
 		level->Update(screen);
 	}
 
+	// cursor position
 	void Game::MousePositionUpdate(int x, int y)
 	{
 		CursorX = x;
 		CursorY = y;
 	}
 
-	// space 44
 	void Game::KeyUp(int key)
 	{
 		if (key == 44)
 		{
 			level->player->UpdateDirection(new vec2((float)CursorX, (float)CursorY));
 			level->player->StartMove();
+			level->StartMoving();
 		}
 	}
 

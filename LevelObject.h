@@ -10,8 +10,8 @@ namespace Tmpl8 {
     public:
         LevelObject();
         LevelObject(char* sprite, int num);
-        ~LevelObject();
         void Render(Surface* screen);
+        Sprite* getPicture() { return picture; }
     protected:
         Sprite* picture;
     };

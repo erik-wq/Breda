@@ -16,7 +16,11 @@ namespace Tmpl8 {
 		float Move();
 		void UpdateDirection(vec2* cursor);
 		void Bounce(vec2* CollisionPoint);
+		void Death();
+		void Revive();
+		bool live() { return !death; }
 	private:
+		bool death;
 		int speed;
 		bool moving;
 		vec2* direction;

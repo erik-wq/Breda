@@ -2,12 +2,13 @@
 
 namespace Tmpl8 {
 	class LevelObject;
+
+	// creates default objects for level with default parameters
 	class Factory
 	{
 	public:
 		LevelObject* LeftWall();
 		LevelObject* RightWall();
-		// static LevelObject* PlayerWall();
 		LevelObject* HorizontalWall();
 		LevelObject* VerticalWall();
 		LevelObject* Baricate(int type);

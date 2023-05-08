@@ -11,10 +11,7 @@ namespace Tmpl8 {
 	{
 		picture = new Sprite(new Surface(sprite), num);
 	}
-	LevelObject::~LevelObject()
-	{
-		delete(picture);
-	}
+	// render picture
 	void LevelObject::Render(Surface* screen)
 	{
 		vec2* position = GlobalPosition();

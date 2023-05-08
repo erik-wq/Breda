@@ -9,28 +9,61 @@
 #include <time.h>
 #include <cstdlib>
 #include <ctime>
+#include "surface.h"
+#include "BoxCollider.h"
 
 namespace Tmpl8 {
 	LevelManager::LevelManager()
 	{
+		// setting default params
 		moving = false;
-		fact = new Factory();
-		LeftWall = fact->LeftWall();
-		RightWall = fact->RightWall();
+		wasbarier = false;
 
+		// creating factory 
+		fact = new Factory();
+		
+		// creating side colliders
+		LeftWall = new SceneObject();
+		LeftWall->collider = new BoxCollider(2, 900);
+		LeftWall->SetPosition(1, 450);
+		RightWall = new SceneObject();
+		RightWall->collider = new BoxCollider(2, 900);
+		RightWall->SetPosition(799, 450);
+
+		// initializing random
+		std::srand(std::time(nullptr));
+
+		// creating player
 		player = new Player();
 
+		// creating root of level
 		root = new SceneObject();
+
+		// generating level
 		GenerateStart();
 		GenerateNextPart();
+		
 	}
+
+	// update of game
 	void LevelManager::Update(Surface* screen)
 	{
+		if (!player->live())
+		{
+			Reset();
+			return;
+		}
+
+		// moving player
 		player->Move();
 
+		// moving level
+		if (moving)
+		{
+			root->UpdatePosition(0, 1);
+		}
 
-		//root->UpdatePosition(0, 1);
-
+		// check for generation of next part
 		vec2* last = objects[objects.size() - 1]->GlobalPosition();
 		if (last->y > 75)
 		{
@@ -38,20 +71,19 @@ namespace Tmpl8 {
 		}
 		delete(last);
 
+		// side colision check
+		Physics::CheckCollision(player, RightWall);
+		Physics::CheckCollision(player, LeftWall);
+
+		// objects collision check and rendering
 		for (LevelObject* object : objects)
 		{
-			if (Physics::CheckCollision(player, object))
-			{
-    				printf("fd\n");
-			}
+			Physics::CheckCollision(player, object);
 			object->Render(screen);
 		}
-		RightWall->Render(screen);
-		LeftWall->Render(screen);
 		player->Render(screen);
 
-		printf("objects %d\n", objects.size());
-		
+		// deleting objects that are not needed
 		if (root->position->y + objects[0]->position->y > 1000)
 		{
 			delete(objects[0]);
@@ -66,42 +98,82 @@ namespace Tmpl8 {
 			}
 		}
 	}
+
+	void LevelManager::Reset()
+	{
+		moving = false;
+		// deleting all objects
+		for (int i = 0; i < objects.size(); i++)
+		{
+			delete(objects[i]);
+		}
+		objects.clear();
+
+		// regenerating level and revinving player
+		player->Stop();
+		GenerateStart();
+		player->Revive();
+		GenerateNextPart();
+	}
+
+	void LevelManager::StartMoving()
+	{
+		if (!moving)
+		{
+			moving = true;
+		}
+	}
+
+	// generating next part
 	void LevelManager::GenerateNextPart()
 	{
+		// random to choose next part
 		int max = ObjectPool();
-		std::srand(std::time(nullptr));
-		int randomInt = std::rand() % (max - 0 + 1);
-		if (randomInt == 1)
+		int randomInt = RandomInt(0, max);
+
+		// bariers dont repeat
+		if (wasbarier)
+		{
+			wasbarier = false;
+			randomInt = randomInt == 2 ? 0 : randomInt;
+		}
+		// vertical wall
+		if (randomInt == 0)
 		{
 			GenerateVertical();
 		}
-		else if (randomInt == 2)
+		// horizontall wall
+		else if (randomInt == 1)
 		{
 			GenerateHorizontal();
 		}
+		// barier
 		else
 		{
 			GenerateBarier();
 		}
 	}
+	// generate vertical wall
 	void LevelManager::GenerateVertical()
 	{
-		std::srand(std::time(nullptr));
-		int x = (std::rand() % (3 - 0 + 1));
-		int y = objects[objects.size() - 1]->position->y;
-		std::srand(std::time(nullptr));
-		y -= minDistance + (std::rand() % (maxDistance - minDistance + 1));
-		printf("%d\n", x);
-		if (x < 3)
+		// choose type
+		int x = RandomInt(0,1);
+		// distance from previous wall
+		int y;
+		// one wall
+		if (x == 0)
 		{
-			x = x < 1 ? 250 : 550;
+			int x = RandomInt(100,600);
 			LevelObject* wall = fact->VerticalWall();
+			y = DistanceY(wall);
 			wall->SetPosition(x, y);
 			AddObject(wall);
 		}
+		// 2 wals
 		else
 		{
 			LevelObject* first = fact->VerticalWall();
+			y = DistanceY(first);
 			first->SetPosition(250, y);
 			AddObject(first);
 			LevelObject* second = fact->VerticalWall();
@@ -109,58 +181,80 @@ namespace Tmpl8 {
 			AddObject(second);
 		}
 	}
+	// generate horizontal wall
 	void LevelManager::GenerateHorizontal()
 	{
 		LevelObject* wall = fact->HorizontalWall();
-		wall->SetPosition(400, objects[objects.size() - 1]->position->y - 340);
+		int x = RandomInt(100,600);
+		wall->SetPosition(x, DistanceY(wall));
 		AddObject(wall);
 	}
+	// generate barier
 	void LevelManager::GenerateBarier()
 	{
+		wasbarier = true;
+		int bariertype = RandomInt(1,4);
+		LevelObject* barier = fact->Baricate(bariertype);
+		int y = DistanceY(barier);
+		barier->SetPosition(400, y);
+		AddObject(barier);
 	}
+	// add object to rendering vector and parent object to root
 	void LevelManager::AddObject(LevelObject* obj)
 	{
 		obj->SetParent(root);
 		objects.push_back(obj);
 
 	}
+	// generate start of level
 	void LevelManager::GenerateStart()
 	{
-		LeftWall->SetPosition(20, 450);
-		RightWall->SetPosition(780, 450);
-
 		player->SetPosition(400, 760);
 
 		root->SetPosition(0, 0);
 		player->SetParent(root);
 
+		objects.push_back(fact->HorizontalWall());
 		objects.push_back(fact->VerticalWall());
 		objects.push_back(fact->VerticalWall());
 
 		objects[0]->SetParent(root);
-		objects[0]->SetPosition(550, 500);
+		objects[0]->SetPosition(400, 805);
 
 		objects[1]->SetParent(root);
-		objects[1]->SetPosition(250, 220);
+		objects[1]->SetPosition(550, 500);
 
-		objects.push_back(fact->Baricate(3));
 		objects[2]->SetParent(root);
-		objects[2]->SetPosition(400 , 300);
-
-		objects.push_back(fact->Baricate(4));
-		objects[3]->SetParent(root);
-		objects[3]->SetPosition(400, 300);
+		objects[2]->SetPosition(250, 220);
 	}
+	// check for possible object
 	int LevelManager::ObjectPool()
 	{
-		if (root->position->y > horizontalWallDist)
+		// all
+		if (root->position->y > BarierDist)
 		{
 			return 2;
 		}
-		else if (root->position->y > BarierDist)
+		// horizontal and vertical
+		else if (root->position->y > horizontalWallDist)
 		{
-			return 3;
+			return 1;
 		}
+		// vertical
 		return 0;
+	}
+	// random from range
+	int LevelManager::RandomInt(int min, int max)
+	{
+		int random = min + (std::rand() % (max - min + 1));
+		return random;
+	}
+	// distance from last generated wall
+	int LevelManager::DistanceY(LevelObject* nextObject)
+	{
+		int y = objects[objects.size() - 1]->position->y - RandomInt(minDistance, maxDistance);
+		y -= objects[objects.size() - 1]->getPicture()->GetHeight() / 2;
+		y -= nextObject->getPicture()->GetHeight() / 2;
+		return y;
 	}
 }

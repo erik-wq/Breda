@@ -11,11 +11,12 @@ namespace Tmpl8 {
 
 	Player::Player() : LevelObject()
 	{
-		speed = 3;
+		speed = 2;
 		moving = false;
 		picture = new Sprite(new Surface("assets/Player.png"), 5);
 		direction = new vec2(0, 0);
 		collider = new CircleCollider(20);
+		death = false;
 	}
 
 	Player::~Player()
@@ -32,9 +33,11 @@ namespace Tmpl8 {
 	{
 		moving = false;
 	}
+
+	// moves player using direction vector
 	float Player::Move()
 	{
-		if (!moving)
+		if (!moving || death)
 		{
 			return 0;
 		}
@@ -45,6 +48,7 @@ namespace Tmpl8 {
 		return move;
 	}
 
+	// direction change
 	void Player::UpdateDirection(vec2* cursor)
 	{
 		vec2* pos = GlobalPosition();
@@ -54,6 +58,7 @@ namespace Tmpl8 {
 		delete(pos);
 	}
 
+	// collision bounce
 	void Player::Bounce(vec2* CollisionPoint)
 	{
 		vec2* pos = GlobalPosition();
@@ -76,6 +81,16 @@ namespace Tmpl8 {
 		Move();
 		speed /= 2;
 		delete(pos);
+	}
+
+	void Player::Death()
+	{
+		death = true;
+	}
+
+	void Player::Revive()
+	{
+		death = false;
 	}
 
 }

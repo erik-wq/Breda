@@ -21,15 +21,15 @@ namespace Tmpl8
 			return false;
 		}
 		// choosing best collision detection algorith
-		if (object->collider->type == 0)
+		if (object->collider->type == 0) // circle
 		{
 			return CircleCollisionCheck(player, object);
 		}
-		else if (object->collider->type == 1)
+		else if (object->collider->type == 1) // box
 		{
 			return BoxCollisionCheck(player, object);
 		}
-		else if (object->collider->type == 2)
+		else if (object->collider->type == 2) // polygon
 		{
 			return PolygonCollisionCheck(player, object);
 		}
@@ -45,6 +45,7 @@ namespace Tmpl8
 		{
 			return false;
 		}
+		// postions
 		vec2* positionPlayer = player->GlobalPosition();
 		vec2* positionOther = object->GlobalPosition();
 		double dist = (new vec2(positionPlayer->x - positionOther->x, positionPlayer->y - positionOther->y))->length();
@@ -61,15 +62,20 @@ namespace Tmpl8
 	// circle box colision
 	bool Physics::BoxCollisionCheck(SceneObject* player, SceneObject* object)
 	{
+		// casting colliders
 		BoxCollider* box = dynamic_cast<BoxCollider*>(object->collider);
 		CircleCollider* circle = dynamic_cast<CircleCollider*>(player->collider);
 		if (box == nullptr || circle == nullptr)
 		{
 			return false;
 		}
+		// collider position
 		vec2* position = object->GlobalPosition();
+		// box collider extends
 		vec2* extends = box->GetBounds();
+		// player global position
 		vec2* playerPos = player->GlobalPosition();
+		// calculating closest point
 		float closestX = std::max(position->x - extends->x, std::min(playerPos->x, position->x + extends->x));
 		float closestY = std::max(position->y - extends->y, std::min(playerPos->y, position->y + extends->y));
 
@@ -102,22 +108,28 @@ namespace Tmpl8
 			return false;
 		}
 		
+		// collision points
 		std::vector<vec2*> points = object->collider->GetColliderPoints(object->GlobalPosition());
+		// player global postion
 		vec2* playerpos = player->GlobalPosition();
 
 		// Check for edge-circle intersection
 		for (int i = 0; i < points.size(); i++)
 		{
+			// line points
 			vec2 p1 = *points[i];
 			vec2 p2 = *points[(i + 1) % points.size()];
+			// calculate vector, length and direction
 			vec2* lineVec = new vec2(p2.x - p1.x, p2.y - p1.y);
 			double lineLength = lineVec->length();
-			vec2* lineDir = new vec2(lineVec->x / lineLength,
-				lineVec->y / lineLength);
+			vec2* lineDir = new vec2(lineVec->x / lineLength,lineVec->y / lineLength);
 
+			// vector from first player to first position
 			vec2 circleVec = *player->GlobalPosition() - p1;
+			// dot produst of vector from player to first position
 			double dotProduct = circleVec.dot(*lineDir);
 
+			// calculating closest point
 			vec2 closestPoint;
 			if (dotProduct < 0) {
 				closestPoint = p1;
@@ -129,11 +141,18 @@ namespace Tmpl8
 				closestPoint = p1 + *lineDir * dotProduct;
 			}
 
+			// distance of closest point
 			double distance = (closestPoint - *player->GlobalPosition()).length();
 			delete(lineVec);
 			delete(lineDir);
+			// radius check
 			if (distance <= 20)
 			{
+				Player* pl = dynamic_cast<Player*>(player);
+				if (pl != nullptr)
+				{
+					pl->Death();
+				}
 				return true;
 			}
 		}
