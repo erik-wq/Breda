@@ -9,6 +9,7 @@
 #include "BoxCollider.h"
 #include "PolygonCollider.h"
 #include <vector>
+#include "LevelManager.h"
 
 namespace Tmpl8
 {
@@ -18,18 +19,7 @@ namespace Tmpl8
 	// -----------------------------------------------------------
 	void Game::Init()
 	{
-		player = new Player();
-		player->SetPosition(300,50);
-		level = new SceneObject();
-		level->SetPosition(400, 400);
-		sp = new Sprite(new Surface("assets/horizontal.png"), 1);
-		std::vector<vec2*> points;
-		/*points.push_back(new vec2(-150, -120));
-		points.push_back(new vec2(50,-120));
-		points.push_back(new vec2(150, 120));
-		points.push_back(new vec2(-150,120));*/
-		// level->collider = new PolygonCollider(points);
-		level->collider = new BoxCollider(160, 40);
+		level = new LevelManager();
 	}
 	
 	// -----------------------------------------------------------
@@ -37,7 +27,6 @@ namespace Tmpl8
 	// -----------------------------------------------------------
 	void Game::Shutdown()
 	{
-		delete(player);
 	}
 
 	// -----------------------------------------------------------
@@ -49,17 +38,7 @@ namespace Tmpl8
 		// clear the graphics window
 		screen->Clear(0);
 
-		vec2* t = level->GlobalPosition();
-		sp->Draw(screen, t->x - sp->GetWidth() / 2, t->y - sp->GetHeight() / 2);
-
-		player->Move();
-
-
-		if (Physics::CheckCollision(player, level))
-		{
-			printf("collision detected\n");
-		}
-		player->Render(screen);
+		level->Update(screen);
 	}
 
 	void Game::MousePositionUpdate(int x, int y)
@@ -73,8 +52,8 @@ namespace Tmpl8
 	{
 		if (key == 44)
 		{
-			player->UpdateDirection(new vec2((float)CursorX, (float)CursorY));
-			player->StartMove();
+			//player->UpdateDirection(new vec2((float)CursorX, (float)CursorY));
+			//player->StartMove();
 		}
 	}
 
@@ -82,7 +61,7 @@ namespace Tmpl8
 	{
 		if (key == 44)
 		{  
-			player->Stop();
+			//player->Stop();
 		}
 	}
 };

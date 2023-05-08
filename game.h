@@ -6,6 +6,7 @@ class Surface;
 class Sprite;
 class Player;
 class SceneObject;
+class LevelManager;
 
 class Game
 {
@@ -29,11 +30,7 @@ private:
 	int CursorX;
 	int CursorY;
 
-	// player refenrence
-	Player* player;
-
-	SceneObject* level;
-	Sprite* sp;
+	LevelManager* level;
 };
 
 }; // namespace Tmpl8

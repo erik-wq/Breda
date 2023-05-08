@@ -225,7 +225,10 @@
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="ColliderBase.cpp" />
+    <ClCompile Include="Factory.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
+    <ClCompile Include="LevelObject.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PolygonCollider.cpp" />
@@ -237,7 +240,10 @@
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="ColliderBase.h" />
+    <ClInclude Include="Factory.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="LevelManager.h" />
+    <ClInclude Include="LevelObject.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PolygonCollider.h" />

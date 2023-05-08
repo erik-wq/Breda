@@ -29,6 +29,15 @@
     <ClCompile Include="Physics.cpp">
       <Filter>Game\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="Factory.cpp">
+      <Filter>Game\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Game\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelObject.cpp">
+      <Filter>Game\Level</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -59,6 +68,15 @@
     <ClInclude Include="Physics.h">
       <Filter>Game\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>Game\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>Game\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelObject.h">
+      <Filter>Game\Level</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">
@@ -72,6 +90,9 @@
     </Filter>
     <Filter Include="Game\Physics\Colliders">
       <UniqueIdentifier>{1e55164d-e5e2-4954-a942-c6fead99c2d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Level">
+      <UniqueIdentifier>{65c54430-363d-4d4c-b69b-01c752ff2d7d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
