@@ -26,9 +26,18 @@ namespace Tmpl8 {
 		LeftWall = new SceneObject();
 		LeftWall->collider = new BoxCollider(2, 900);
 		LeftWall->SetPosition(1, 450);
+
 		RightWall = new SceneObject();
 		RightWall->collider = new BoxCollider(2, 900);
 		RightWall->SetPosition(799, 450);
+
+		BottomWall = new SceneObject();
+		BottomWall->collider = new BoxCollider(900, 2);
+		BottomWall->SetPosition(400, 899);
+
+		TopWall = new SceneObject();
+		TopWall->collider = new BoxCollider(900, 2);
+		TopWall->SetPosition(400, 1);
 
 		// initializing random
 		std::srand(std::time(nullptr));
@@ -74,6 +83,8 @@ namespace Tmpl8 {
 		// side colision check
 		Physics::CheckCollision(player, RightWall);
 		Physics::CheckCollision(player, LeftWall);
+		Physics::CheckCollision(player, BottomWall);
+		Physics::CheckCollision(player, TopWall);
 
 		// objects collision check and rendering
 		for (LevelObject* object : objects)
