@@ -11,7 +11,7 @@ namespace Tmpl8 {
 
 	Player::Player() : LevelObject()
 	{
-		speed = 1;
+		speed = 3;
 		moving = false;
 		picture = new Sprite(new Surface("assets/Player.png"), 5);
 		direction = new vec2(0, 0);
@@ -32,21 +32,26 @@ namespace Tmpl8 {
 	{
 		moving = false;
 	}
-	void Player::Move()
+	float Player::Move()
 	{
 		if (!moving)
 		{
-			return;
+			return 0;
 		}
 		position->x += direction->x * speed;
 		position->y += direction->y * speed;
+		float move = direction->y;
+		move *= speed;
+		return move;
 	}
 
 	void Player::UpdateDirection(vec2* cursor)
 	{
-		direction->x = cursor->x - position->x;
-		direction->y = cursor->y - position->y;
+		vec2* pos = GlobalPosition();
+		direction->x = cursor->x - pos->x;
+		direction->y = cursor->y - pos->y;
 		direction->normalize();
+		delete(pos);
 	}
 
 	void Player::Bounce(vec2* CollisionPoint)

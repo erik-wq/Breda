@@ -13,7 +13,7 @@ namespace Tmpl8 {
 		ColliderBase* collider;
 		vec2* GlobalPosition();
 		void SetParent(SceneObject* object);
-		void SetPosition(int x, int y);
+		void SetPosition(float x, float y);
 		virtual void UpdatePosition(int deltaX, int deltaY);
 	};
 }

@@ -13,8 +13,8 @@ namespace Tmpl8 {
 		~Player();
 		void StartMove();
 		void Stop();
-		void Move();
-		void Player::UpdateDirection(vec2* cursor);
+		float Move();
+		void UpdateDirection(vec2* cursor);
 		void Bounce(vec2* CollisionPoint);
 	private:
 		int speed;

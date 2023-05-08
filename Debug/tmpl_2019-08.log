@@ -1,4 +1,10 @@
 ﻿  LevelManager.cpp
-  game.cpp
-  Generating Code...
+D:\erik\Development\Game Development\Holandsko\Breda\LevelManager.cpp(72,23): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\erik\Development\Game Development\Holandsko\Breda\LevelManager.cpp(89,23): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\erik\Development\Game Development\Holandsko\Breda\LevelManager.cpp(91,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\erik\Development\Game Development\Holandsko\Breda\LevelManager.cpp(92,23): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\erik\Development\Game Development\Holandsko\Breda\LevelManager.cpp(99,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\erik\Development\Game Development\Holandsko\Breda\LevelManager.cpp(99,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\erik\Development\Game Development\Holandsko\Breda\LevelManager.cpp(105,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\erik\Development\Game Development\Holandsko\Breda\LevelManager.cpp(108,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   tmpl_2019-08.vcxproj -> D:\erik\Development\Game Development\Holandsko\Breda\tmpl_2019-08_x86_debug.exe

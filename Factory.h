@@ -8,8 +8,9 @@ namespace Tmpl8 {
 		LevelObject* LeftWall();
 		LevelObject* RightWall();
 		// static LevelObject* PlayerWall();
-		// static LevelObject* HorizontalWall();
-		// static LevelObject* VerticalWall();
+		LevelObject* HorizontalWall();
+		LevelObject* VerticalWall();
+		LevelObject* Baricate(int type);
 	};
 }
 

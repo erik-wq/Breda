@@ -5,6 +5,7 @@
 namespace Tmpl8 {
 	LevelObject::LevelObject()
 	{
+		picture = nullptr;
 	}
 	LevelObject::LevelObject(char* sprite, int num) : SceneObject()
 	{

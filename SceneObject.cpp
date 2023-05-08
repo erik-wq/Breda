@@ -24,7 +24,7 @@ namespace Tmpl8 {
 	{
 		parent = object;
 	}
-	void SceneObject::SetPosition(int x, int y)
+	void SceneObject::SetPosition(float x, float y)
 	{
 		position->x = x;
 		position->y = y;

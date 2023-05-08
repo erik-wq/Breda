@@ -52,8 +52,8 @@ namespace Tmpl8
 	{
 		if (key == 44)
 		{
-			//player->UpdateDirection(new vec2((float)CursorX, (float)CursorY));
-			//player->StartMove();
+			level->player->UpdateDirection(new vec2((float)CursorX, (float)CursorY));
+			level->player->StartMove();
 		}
 	}
 
@@ -61,7 +61,7 @@ namespace Tmpl8
 	{
 		if (key == 44)
 		{  
-			//player->Stop();
+			level->player->Stop();
 		}
 	}
 };
