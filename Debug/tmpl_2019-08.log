@@ -1,10 +1,4 @@
-﻿  Physics.cpp
-D:\erik\Development\Game Development\Holandsko\Breda\Physics.cpp(105,21): warning C4018: '<': signed/unsigned mismatch
-D:\erik\Development\Game Development\Holandsko\Breda\Physics.cpp(112,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\erik\Development\Game Development\Holandsko\Breda\Physics.cpp(111,40): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\erik\Development\Game Development\Holandsko\Breda\Physics.cpp(125,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  game.cpp
-D:\erik\Development\Game Development\Holandsko\Breda\game.cpp(52,52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\erik\Development\Game Development\Holandsko\Breda\game.cpp(52,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
+﻿  Player.cpp
+D:\erik\Development\Game Development\Holandsko\Breda\Player.cpp(53,11): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\erik\Development\Game Development\Holandsko\Breda\Player.cpp(52,11): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   tmpl_2019-08.vcxproj -> D:\erik\Development\Game Development\Holandsko\Breda\tmpl_2019-08_x86_debug.exe

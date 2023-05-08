@@ -1,8 +1,10 @@
 #include "Player.h"
 #include "surface.h"
 #include <stdio.h>
+#include <cmath>
 #include "template.h"
 #include "CircleCollider.h"
+#include <SDL2-2.0.3/include/SDL_stdinc.h>
 
 
 namespace Tmpl8 {
@@ -15,6 +17,11 @@ namespace Tmpl8 {
 		printf("%d %d\n", picture->GetWidth(), picture->GetHeight());
 		direction = new vec2(0, 0);
 		collider = new CircleCollider(20);
+	}
+
+	Player::~Player()
+	{
+		delete(position);
 	}
 
 	void Player::StartMove()
@@ -32,8 +39,8 @@ namespace Tmpl8 {
 		{
 			return;
 		}
-		position->x += direction->x;
-		position->y += direction->y;
+		position->x += direction->x * speed;
+		position->y += direction->y * speed;
 	}
 
 	void Player::Render(Surface* screen)
@@ -53,9 +60,25 @@ namespace Tmpl8 {
 		direction->y = cursor->y - position->y;
 		direction->normalize();
 	}
-	
-	Player::~Player()
+
+	void Player::Bounce(vec2* CollisionPoint)
 	{
-		delete(position);
+		vec2* pos = GlobalPosition();
+		float right = pos->x - CollisionPoint->x;
+		float up = pos->y - CollisionPoint->y;
+		if (right != 0)
+		{
+			direction->x *= -1;
+		}
+		else if (up != 0)
+		{
+			direction->y *= -1;
+		}
+		
+		speed *= 2;
+		Move();
+		speed /= 2;
+		delete(pos);
 	}
+
 }

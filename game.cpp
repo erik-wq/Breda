@@ -22,13 +22,14 @@ namespace Tmpl8
 		player->SetPosition(300,50);
 		level = new SceneObject();
 		level->SetPosition(400, 400);
-		sp = new Sprite(new Surface("assets/barier.png"), 1);
+		sp = new Sprite(new Surface("assets/horizontal.png"), 1);
 		std::vector<vec2*> points;
-		points.push_back(new vec2(-150, -120));
+		/*points.push_back(new vec2(-150, -120));
 		points.push_back(new vec2(50,-120));
 		points.push_back(new vec2(150, 120));
-		points.push_back(new vec2(-150,120));
-		level->collider = new PolygonCollider(points);
+		points.push_back(new vec2(-150,120));*/
+		// level->collider = new PolygonCollider(points);
+		level->collider = new BoxCollider(160, 40);
 	}
 	
 	// -----------------------------------------------------------

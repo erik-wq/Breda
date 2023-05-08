@@ -14,7 +14,7 @@ namespace Tmpl8 {
 		vec2* GlobalPosition();
 		void SetParent(SceneObject* object);
 		void SetPosition(int x, int y);
-		void UpdatePosition(int deltaX, int deltaY);
+		virtual void UpdatePosition(int deltaX, int deltaY);
 	};
 }
 

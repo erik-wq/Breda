@@ -10,12 +10,13 @@ namespace Tmpl8 {
 	{
 	public:
 		Player();
+		~Player();
 		void StartMove();
 		void Stop();
 		void Move();
 		void Render(Surface* screen);
 		void Player::UpdateDirection(vec2* cursor);
-		~Player();
+		void Bounce(vec2* CollisionPoint);
 	private:
 		int speed;
 		bool moving;

@@ -5,11 +5,13 @@
 #include "PolygonCollider.h"
 #include "SceneObject.h"
 #include "template.h"
+#include "Player.h"
 
 namespace Tmpl8
 {
 	bool Physics::CheckCollision(SceneObject* player, SceneObject* object)
 	{
+		// checks for nullpointers
 		if (player == nullptr || object == nullptr)
 		{
 			return false;
@@ -18,6 +20,7 @@ namespace Tmpl8
 		{
 			return false;
 		}
+		// choosing best collision detection algorith
 		if (object->collider->type == 0)
 		{
 			return CircleCollisionCheck(player, object);
@@ -28,15 +31,12 @@ namespace Tmpl8
 		}
 		else if (object->collider->type == 2)
 		{
-			if (PolygonCollisionCheck(player, object))
-			{
-				printf("collision\n");
-				return true;
-			}
+			return PolygonCollisionCheck(player, object);
 		}
 		return false;
 	}
 
+	// circle circle colision
 	bool Physics::CircleCollisionCheck(SceneObject* player, SceneObject* object)
 	{
 		CircleCollider* pl = dynamic_cast<CircleCollider*>(player->collider);
@@ -53,12 +53,12 @@ namespace Tmpl8
 		int r1 = pl->GetRadius();
 		int r2 = other->GetRadius();
 		if (dist <= static_cast<double>(r1 + r2)) {
-			printf("%p %p", positionOther, positionPlayer);
 			return true; // Collision detected
 		}
 		return false; // No collision detected
 	}
 
+	// circle box colision
 	bool Physics::BoxCollisionCheck(SceneObject* player, SceneObject* object)
 	{
 		BoxCollider* box = dynamic_cast<BoxCollider*>(object->collider);
@@ -82,14 +82,18 @@ namespace Tmpl8
 		if (distance < circle->GetRadius())
 		{
 			// Set the collision point coordinates
-			// collisionX = closestX;
-			// collisionY = closestY;
-			return true;
+			vec2* pointOfCollision = new vec2(closestX, closestY);
+			Player* pl = dynamic_cast<Player*>(player);
+			pl->Bounce(pointOfCollision);
+			delete(pointOfCollision);
+
+ 			return true;
 		}
 
 		return false;
 	}
 
+	// p[olygoon circle colision
 	bool Physics::PolygonCollisionCheck(SceneObject* player, SceneObject* object)
 	{
 		CircleCollider* pCol = dynamic_cast<CircleCollider*>(player->collider);
