@@ -63,12 +63,23 @@ namespace Tmpl8 {
 			return;
 		}
 
+		// posible off screnn
+		vec2* playerpos = player->GlobalPosition();
+		if (playerpos->y > 920 || playerpos->y < -20)
+		{
+			Reset();
+			delete(playerpos);
+			return;
+		}
+		delete(playerpos);
+
 		// moving player
 		player->Move();
 
 		// moving level
 		if (moving)
 		{
+			player->UpdatePosition(0, -1);
 			root->UpdatePosition(0, 1);
 		}
 

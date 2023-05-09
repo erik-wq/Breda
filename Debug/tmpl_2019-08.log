@@ -1,12 +1,12 @@
 ﻿  LevelManager.cpp
 C:\Game development\Hollandsko\Breda\LevelManager.cpp(43,23): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(117,21): warning C4018: '<': signed/unsigned mismatch
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(180,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(180,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(188,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(191,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(200,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(200,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(210,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(266,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(128,21): warning C4018: '<': signed/unsigned mismatch
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(191,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(191,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(199,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(202,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(211,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(211,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(221,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(277,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   tmpl_2019-08.vcxproj -> C:\Game development\Hollandsko\Breda\tmpl_2019-08_x86_debug.exe
