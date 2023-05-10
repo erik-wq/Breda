@@ -1,0 +1,3 @@
+Press spacebar, after realease of spacebar player will start moving towards direction of cursor.
+When holding spacebar player will move slower.
+Collect blue circles, dodge red objects, bounce of edges and white objects
