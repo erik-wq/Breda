@@ -12,6 +12,7 @@ namespace Tmpl8 {
 		LevelObject* HorizontalWall();
 		LevelObject* VerticalWall();
 		LevelObject* Baricate(int type);
+		LevelObject* Bonus();
 	};
 }
 

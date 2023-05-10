@@ -21,7 +21,7 @@ namespace Tmpl8 {
 
 		// creating factory 
 		fact = new Factory();
-		
+
 		// creating side colliders
 		LeftWall = new SceneObject();
 		LeftWall->collider = new BoxCollider(2, 900);
@@ -51,7 +51,7 @@ namespace Tmpl8 {
 		// generating level
 		GenerateStart();
 		GenerateNextPart();
-		
+
 	}
 
 	// update of game
@@ -97,6 +97,11 @@ namespace Tmpl8 {
 		Physics::CheckCollision(player, BottomWall);
 		Physics::CheckCollision(player, TopWall);
 
+		for (LevelObject* bonus : bonuses)
+		{
+			bonus->Render(screen);
+		}
+
 		// objects collision check and rendering
 		for (LevelObject* object : objects)
 		{
@@ -106,17 +111,21 @@ namespace Tmpl8 {
 		player->Render(screen);
 
 		// deleting objects that are not needed
-		if (root->position->y + objects[0]->position->y > 1000)
+		for (int i = 0; i < objects.size(); i++)
 		{
-			delete(objects[0]);
-			objects.erase(objects.begin());
-		}
-		if (objects.size() > 2)
-		{
-			if (root->position->y + objects[1]->position->y > 1000)
+			if (root->position->y + objects[i]->position->y > 1000)
 			{
-				delete(objects[1]);
-				objects.erase(objects.begin() + 1);
+				delete(objects[i]);
+				objects.erase(objects.begin() + i);
+			}
+		}
+
+		for (int i = 0; i < bonuses.size(); i++)
+		{
+			if (Physics::CheckCollision(player, bonuses[i]))
+			{
+				delete(bonuses[i]);
+				bonuses.erase(bonuses.begin() + i);
 			}
 		}
 	}
@@ -144,6 +153,15 @@ namespace Tmpl8 {
 		{
 			moving = true;
 		}
+	}
+
+	LevelObject* LevelManager::SpawnBonus()
+	{
+		LevelObject* bonus = fact->Bonus();
+		int x = RandomInt(50, 750);
+		int y = RandomInt(50, 850);
+		bonus->SetPosition(x, y);
+		return bonus;
 	}
 
 	// generating next part
@@ -179,13 +197,13 @@ namespace Tmpl8 {
 	void LevelManager::GenerateVertical()
 	{
 		// choose type
-		int x = RandomInt(0,1);
+		int x = RandomInt(0, 1);
 		// distance from previous wall
 		int y;
 		// one wall
 		if (x == 0)
 		{
-			int x = RandomInt(100,600);
+			int x = RandomInt(100, 600);
 			LevelObject* wall = fact->VerticalWall();
 			y = DistanceY(wall);
 			wall->SetPosition(x, y);
@@ -207,7 +225,7 @@ namespace Tmpl8 {
 	void LevelManager::GenerateHorizontal()
 	{
 		LevelObject* wall = fact->HorizontalWall();
-		int x = RandomInt(100,600);
+		int x = RandomInt(100, 600);
 		wall->SetPosition(x, DistanceY(wall));
 		AddObject(wall);
 	}
@@ -215,7 +233,7 @@ namespace Tmpl8 {
 	void LevelManager::GenerateBarier()
 	{
 		wasbarier = true;
-		int bariertype = RandomInt(1,4);
+		int bariertype = RandomInt(1, 4);
 		LevelObject* barier = fact->Baricate(bariertype);
 		int y = DistanceY(barier);
 		barier->SetPosition(400, y);
@@ -248,6 +266,11 @@ namespace Tmpl8 {
 
 		objects[2]->SetParent(root);
 		objects[2]->SetPosition(250, 220);
+
+		for (int i = 0; i < 12; i++)
+		{
+			bonuses.push_back(SpawnBonus());
+		}
 	}
 	// check for possible object
 	int LevelManager::ObjectPool()

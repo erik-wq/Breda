@@ -25,6 +25,9 @@ namespace Tmpl8 {
 
 		// level objects
 		std::vector<LevelObject*> objects;
+		std::vector<LevelObject*> bonuses;
+
+		LevelObject* SpawnBonus();
 
 		// screen size
 		int widht = 800;

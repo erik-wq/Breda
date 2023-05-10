@@ -73,4 +73,11 @@ namespace Tmpl8 {
 		return platf;
 	}
 
+	LevelObject* Factory::Bonus()
+	{
+		LevelObject* bonus = new LevelObject("assets/coin.png", 1);
+		bonus->collider = new CircleCollider(10);
+		return bonus;
+	}
+
 }
