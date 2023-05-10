@@ -1,12 +1,12 @@
-﻿  LevelManager.cpp
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(43,23): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(128,21): warning C4018: '<': signed/unsigned mismatch
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(191,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(191,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(199,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(202,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(211,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(211,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(221,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(277,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+﻿  Player.cpp
+PolygonCollider.obj : warning LNK4099: PDB '' was not found with 'PolygonCollider.obj' or at ''; linking object as if no debug info
+BoxCollider.obj : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+BoxCollider.obj : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+BoxCollider.obj : warning LNK4099: PDB 'vc142.pdb' was not found with 'BoxCollider.obj' or at 'C:\Game development\Hollandsko\Breda\vc142.pdb'; linking object as if no debug info
+user32.lib(USER32.dll) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+sdl2.lib(SDL2.dll) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+MSVCRTD.lib(denormal_control.obj) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+LINK : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+LINK : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+LINK : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
   tmpl_2019-08.vcxproj -> C:\Game development\Hollandsko\Breda\tmpl_2019-08_x86_debug.exe

@@ -19,10 +19,12 @@ namespace Tmpl8 {
 		void Death();
 		void Revive();
 		bool live() { return !death; }
+		void Slow();
 	private:
 		bool death;
 		int speed;
 		bool moving;
+		bool slowed;
 		vec2* direction;
 	};
 }

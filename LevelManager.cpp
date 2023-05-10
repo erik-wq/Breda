@@ -79,7 +79,7 @@ namespace Tmpl8 {
 		// moving level
 		if (moving)
 		{
-			player->UpdatePosition(0, -1);
+			// player->UpdatePosition(0, -1);
 			root->UpdatePosition(0, 1);
 		}
 
@@ -234,7 +234,7 @@ namespace Tmpl8 {
 		player->SetPosition(400, 760);
 
 		root->SetPosition(0, 0);
-		player->SetParent(root);
+		// player->SetParent(root);
 
 		objects.push_back(fact->HorizontalWall());
 		objects.push_back(fact->VerticalWall());

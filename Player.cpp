@@ -11,12 +11,13 @@ namespace Tmpl8 {
 
 	Player::Player() : LevelObject()
 	{
-		speed = 2;
+		speed = 4;
 		moving = false;
 		picture = new Sprite(new Surface("assets/Player.png"), 5);
 		direction = new vec2(0, 0);
 		collider = new CircleCollider(20);
 		death = false;
+		slowed = false;
 	}
 
 	Player::~Player()
@@ -26,6 +27,7 @@ namespace Tmpl8 {
 
 	void Player::StartMove()
 	{
+		slowed = false;
 		moving = true;
 	}
 
@@ -85,6 +87,9 @@ namespace Tmpl8 {
 
 	void Player::Death()
 	{
+		direction->x = 0;
+		direction->y = 0;
+		slowed = false;
 		death = true;
 	}
 
@@ -92,5 +97,12 @@ namespace Tmpl8 {
 	{
 		death = false;
 	}
+
+	void Player::Slow()
+	{
+		slowed = true;
+	}
+
+	
 
 }

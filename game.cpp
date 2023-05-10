@@ -63,7 +63,7 @@ namespace Tmpl8
 	{
 		if (key == 44)
 		{  
-			level->player->Stop();
+			level->player->Slow();
 		}
 	}
 };
