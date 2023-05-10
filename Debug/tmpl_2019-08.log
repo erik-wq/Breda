@@ -1,25 +1,27 @@
 ﻿  LevelManager.cpp
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(43,23): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(114,21): warning C4018: '<': signed/unsigned mismatch
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(123,21): warning C4018: '<': signed/unsigned mismatch
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(137,21): warning C4018: '<': signed/unsigned mismatch
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(163,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(163,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(209,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(209,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(217,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(220,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(229,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(229,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(239,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Game development\Hollandsko\Breda\LevelManager.cpp(300,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(47,23): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(75,22): warning C4018: '<': signed/unsigned mismatch
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(132,21): warning C4018: '<': signed/unsigned mismatch
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(141,21): warning C4018: '<': signed/unsigned mismatch
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(155,21): warning C4018: '<': signed/unsigned mismatch
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(161,21): warning C4018: '<': signed/unsigned mismatch
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(187,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(187,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(233,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(233,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(241,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(244,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(253,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(253,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(263,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Game development\Hollandsko\Breda\LevelManager.cpp(324,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 PolygonCollider.obj : warning LNK4099: PDB '' was not found with 'PolygonCollider.obj' or at ''; linking object as if no debug info
-Factory.obj : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+ColliderBase.obj : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 BoxCollider.obj : warning LNK4099: PDB 'vc142.pdb' was not found with 'BoxCollider.obj' or at 'C:\Game development\Hollandsko\Breda\vc142.pdb'; linking object as if no debug info
 user32.lib(USER32.dll) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 sdl2.lib(SDL2.dll) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-sdl2main.lib(SDL_windows_main.obj) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-MSVCRTD.lib(file_mode.obj) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+sdl2.lib(SDL2.dll) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+MSVCRTD.lib(env_mode.obj) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 LINK : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 LINK : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 LINK : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger

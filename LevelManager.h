@@ -27,6 +27,8 @@ namespace Tmpl8 {
 		std::vector<LevelObject*> objects;
 		std::vector<LevelObject*> bonuses;
 
+		int maxBonuses;
+
 		LevelObject* SpawnBonus();
 
 		// screen size
@@ -60,6 +62,13 @@ namespace Tmpl8 {
 		// support methods
 		int RandomInt(int min, int max);
 		int DistanceY(LevelObject* nextObject);
+
+		// timers
+		time_t toWait;
+
+		bool runing;
+
+		void CheckTimer();
 
 		// distances
 		const int horizontalWallDist = 1000;

@@ -11,6 +11,7 @@
 #include <ctime>
 #include "surface.h"
 #include "BoxCollider.h"
+#include <ctime>
 
 namespace Tmpl8 {
 	LevelManager::LevelManager()
@@ -18,6 +19,9 @@ namespace Tmpl8 {
 		// setting default params
 		moving = false;
 		wasbarier = false;
+
+		runing = false;
+		maxBonuses = 10;
 
 		// creating factory 
 		fact = new Factory();
@@ -61,6 +65,20 @@ namespace Tmpl8 {
 		{
 			Reset();
 			return;
+		}
+
+		if (runing)
+		{
+			CheckTimer();
+		}
+
+		if (bonuses.size() < maxBonuses)
+		{
+			if (!runing)
+			{
+				toWait = time(nullptr) + RandomInt(1, 4);
+				runing = true;
+			}
 		}
 
 		// posible off screnn
@@ -139,6 +157,12 @@ namespace Tmpl8 {
 			delete(objects[i]);
 		}
 		objects.clear();
+
+		for (int i = 0; i < bonuses.size(); i++)
+		{
+			delete(bonuses[i]);
+		}
+		bonuses.clear();
 
 		// regenerating level and revinving player
 		player->Stop();
@@ -267,7 +291,7 @@ namespace Tmpl8 {
 		objects[2]->SetParent(root);
 		objects[2]->SetPosition(250, 220);
 
-		for (int i = 0; i < 12; i++)
+		for (int i = 0; i < maxBonuses; i++)
 		{
 			bonuses.push_back(SpawnBonus());
 		}
@@ -301,5 +325,13 @@ namespace Tmpl8 {
 		y -= objects[objects.size() - 1]->getPicture()->GetHeight() / 2;
 		y -= nextObject->getPicture()->GetHeight() / 2;
 		return y;
+	}
+	void LevelManager::CheckTimer()
+	{
+		if (toWait <= time(nullptr))
+		{
+			bonuses.push_back(SpawnBonus());
+			runing = false;
+		}
 	}
 }
