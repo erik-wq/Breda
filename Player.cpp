@@ -58,6 +58,11 @@ namespace Tmpl8 {
 		direction->y = cursor->y - pos->y;
 		direction->normalize();
 		delete(pos);
+		if (slowed)
+		{
+			speed *= 2;
+			slowed = true;
+		}
 	}
 
 	// collision bounce
@@ -100,7 +105,11 @@ namespace Tmpl8 {
 
 	void Player::Slow()
 	{
-		slowed = true;
+		if (!slowed)
+		{
+			slowed = true;
+			speed /= 2;
+		}
 	}
 
 	

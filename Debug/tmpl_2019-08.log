@@ -1,11 +1,11 @@
 ﻿  Player.cpp
-PolygonCollider.obj : warning LNK4099: PDB '' was not found with 'PolygonCollider.obj' or at ''; linking object as if no debug info
-BoxCollider.obj : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+PolygonCollider.obj : warning LNK4099: PDB 'vc142.pdb' was not found with 'PolygonCollider.obj' or at 'C:\Game development\Hollandsko\Breda\vc142.pdb'; linking object as if no debug info
 BoxCollider.obj : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 BoxCollider.obj : warning LNK4099: PDB 'vc142.pdb' was not found with 'BoxCollider.obj' or at 'C:\Game development\Hollandsko\Breda\vc142.pdb'; linking object as if no debug info
 user32.lib(USER32.dll) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 sdl2.lib(SDL2.dll) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-MSVCRTD.lib(denormal_control.obj) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+sdl2.lib(SDL2.dll) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+MSVCRTD.lib(env_mode.obj) : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 LINK : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 LINK : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 LINK : warning LNK4020: a type record in 'c:\game development\hollandsko\breda\debug\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
